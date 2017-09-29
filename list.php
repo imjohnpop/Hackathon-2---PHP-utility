@@ -20,14 +20,14 @@
     <title>U2-Ecommerce | List</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 </head>
-<body>
+<body class="bg-dark">
         <a class="btn btn-primary" href="index.php">Go to the form</a>
         <hr>
     <div class="container">
         <div class="row">
             <?php foreach ($watches as $watch) : ?>
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-2">
-                <div class="card bg-dark text-light">
+                <div class="card bg-light text-dark">
                     <img class="card-img-top" src="<?= htmlspecialchars(stripslashes($watch['image']))?>" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="card-title"><?= htmlspecialchars(stripslashes($watch['name']))?></h4>
@@ -37,10 +37,10 @@
                         </div>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item bg-dark text-light"><strong>Brand:</strong> <small><?= htmlspecialchars(stripslashes($brand[$watch['brand']]))?></small></li>
-                        <li class="list-group-item bg-dark text-light"><strong>Category:</strong> <small><?= htmlspecialchars(stripslashes($category[$watch['category']]))?></small></li>
-                        <li class="list-group-item bg-dark text-light"><strong>Gender:</strong> <small><?= htmlspecialchars(stripslashes($gender[$watch['gender']]))?></small></li>
-                        <li class="list-group-item bg-dark text-light"><strong>Price:</strong> <small><?= htmlspecialchars(stripslashes($watch['price']))?></small> ,- CZK</li>
+                        <li class="list-group-item bg-light text-dark"><strong>Brand:</strong> <small><?= htmlspecialchars(stripslashes($brand[$watch['brand']]))?></small></li>
+                        <li class="list-group-item bg-light text-dark"><strong>Category:</strong> <small><?= htmlspecialchars(stripslashes($category[$watch['category']]))?></small></li>
+                        <li class="list-group-item bg-light text-dark"><strong>Gender:</strong> <small><?= htmlspecialchars(stripslashes($gender[$watch['gender']]))?></small></li>
+                        <li class="list-group-item bg-light text-dark"><strong>Price:</strong> <small><?= htmlspecialchars(stripslashes($watch['price']))?></small> ,- CZK</li>
                     </ul>
                     <div class="card-body">
                         <a class="btn btn-primary btn-block" href="<?= 'edit.php?id=' . htmlspecialchars(stripslashes($watch['id'])) . '&status=edit'; ?>" class="card-link">Edit</a>
