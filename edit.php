@@ -28,13 +28,13 @@ $watches = $stmt->fetch();
         {echo '<h1 class="text-uppercase text-center">You have added a watch!</h1>';}
         elseif (isset($_GET['status']) && $_GET['status'] == 'edit') { echo '<h1 class="text-uppercase text-center">Edit your product</h1>'; }
         else { echo '<h1 class="text-uppercase text-center">Add a watch</h1>';}?>
-        <a href="/hackathon%232/Hackathon-2---PHP-utility/list.php">Go to the list of products</a>
+        <a href="list.php">Go to the list of products</a>
     </section>
     
     <div class="container">
         <section id="form" class="row pb-4 pt-5 border border-dark">
             <?php 
-                echo build_form($watches['name'], $watches['brand'], $watches['category'], $watches['gender'], $watches['details'], $watches['price']);
+                echo build_form($watches['name'], $watches['brand'], $watches['category'], $watches['gender'], $watches['details'], $watches['price'], $watches['image']);
             ?>
         </section>
     </div>
