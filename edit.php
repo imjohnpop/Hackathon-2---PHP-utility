@@ -6,9 +6,26 @@ require 'category.php';
 require 'brand.php';
 $db = db_connect();
 
+if(empty($_GET['id'])) {
+    echo 'You didn\t selected any item for editing';
+    echo '<a class="btn btn-primary" href="list.php">Go to the list of products</a>';
+    exit();
+}
+
 $stmt = $db->prepare('SELECT * FROM watches WHERE id = ?');
 $stmt->execute([$_GET['id']]);
 $watches = $stmt->fetch();
+if($watches == false) {
+    echo 'Item with this ID doesn\'t exist';
+    echo '<a class="btn btn-primary" href="list.php">Go to the list of products</a>';
+    exit();
+}
+if($_POST) {
+    $stmt = $db->prepare('UPDATE watches SET name=?, brand=?, category=?, gender=?,details=?, price=?, image=? WHERE id = ?');
+    $stmt->execute([$_POST['name'], $_POST['brand'], $_POST['category'], $_POST['gender'], $_POST['details'], $_POST['price'], $_POST['image'], $_GET['id']]);
+    header ("Location: list.php?status=ok");// changes the method from post to get
+    exit();
+}
 
 ?>
 

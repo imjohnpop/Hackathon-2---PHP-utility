@@ -1,6 +1,6 @@
 <?php 
 function build_form($name, $idb, $idc, $idg, $details, $price, $image){
-    $form = '<form class="col-12" action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method="post">
+    $form = '<form class="col-12" action="" method="post">
         <div class="form-group"><label for="name">Watch:</label><input class="form-control" type="text" name="name" placeholder="Name of the watch" value="' . htmlspecialchars(stripslashes($name)) . '"></div>
         <div class="d-flex">
             <div class="mr-3 form-group"><label class="mr-1" for="brand">Brand:</label>
