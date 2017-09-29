@@ -1,5 +1,38 @@
 <?php 
-function build_form($name, $idb, $idc, $idg, $details, $price, $image){
+
+function required() {
+    if($_POST) {
+        $errors = array();
+        if (empty($_POST ["name"])){
+            $errors[] = '<div class="alert alert-danger" role="alert">
+            Please fill in the name!
+          </div>';
+        }
+        if (empty($_POST ["details"])){
+            $errors[] = '<div class="alert alert-danger" role="alert">
+            Please fill in the details!
+          </div>'; 
+        }
+        if (empty($_POST ["price"])){
+            $errors[] = '<div class="alert alert-danger" role="alert">
+            Please fill in the details!
+          </div>'; 
+        }
+        if (empty($errors)) {
+            header('Location: index.php?status=ok');
+            exit();
+        } else {
+            foreach ($errors as $error) {
+                echo $error . '<br>';
+    
+            }
+        }
+    }
+}
+function build_form($name, $idb, $idc, $idg, $details, $price, $image = null){
+    if($image == null) {
+        echo 'img/default-'.$idb.'jpg';
+    }
     $form = '<form class="col-12" action="" method="post">
         <div class="form-group"><label for="name">Watch:</label><input class="form-control" type="text" name="name" placeholder="Name of the watch" value="' . htmlspecialchars(stripslashes($name)) . '"></div>
         <div class="d-flex">

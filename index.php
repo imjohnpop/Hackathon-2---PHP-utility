@@ -9,10 +9,9 @@ $db = db_connect();
 if ($_POST) {
     $stmt = $db->prepare('INSERT INTO watches (name, brand, category, gender, details, price, image) VALUES (?, ?, ?, ?, ?, ?, ?)');
     $stmt->execute([$_POST['name'], $_POST['brand'], $_POST['category'], $_POST['gender'], $_POST['details'], $_POST['price'], $_POST['image']]);
-
-    header ("Location: index.php?status=ok");// changes the method from post to get
-    exit();
 }
+required();
+var_dump($brand);
 ?>
 <!DOCTYPE html>
 <html lang="en">
