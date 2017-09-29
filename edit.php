@@ -26,9 +26,9 @@ $watches = $stmt->fetch();
     <section class="container my-5 py-2 border border-dark">
         <?php if (isset($_GET['status']) && $_GET['status'] == 'ok')
         {echo '<h1 class="text-uppercase text-center">You have added a watch!</h1>';}
-        elseif (isset($_GET['status']) && $_GET['status'] == 'edit') { echo '<h1 class="text-uppercase text-center">Edit your product</h1>'; }
+        elseif (isset($_GET['status']) && $_GET['status'] == 'edit') { echo '<h1 class="text-uppercase text-left">Edit your product</h1>'; }
         else { echo '<h1 class="text-uppercase text-center">Add a watch</h1>';}?>
-        <a href="list.php">Go to the list of products</a>
+        <a class="btn btn-primary" href="list.php">Go to the list of products</a>
     </section>
     
     <div class="container">
@@ -36,6 +36,11 @@ $watches = $stmt->fetch();
             <?php 
                 echo build_form($watches['name'], $watches['brand'], $watches['category'], $watches['gender'], $watches['details'], $watches['price'], $watches['image']);
             ?>
+            <div class="container p-2 d-flex flex-row justify-content-center">
+                <div class="row">
+                    <?= "<img class=\"img-fluid h-100\" src=\"" . $watches['image'] . "\" alt=\"product image\">" ?>
+                </div>
+            </div>
         </section>
     </div>
 
