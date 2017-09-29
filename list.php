@@ -23,19 +23,30 @@
 <body>
         <a href="index.php">Go to the form</a>
         <hr>
-        <?php
-            foreach ($watches as $watch) {
-                echo 'Name: ' . htmlspecialchars($watch['name']) . '<br>';
-                echo 'Brand: ' . htmlspecialchars($brand[$watch['brand']]) . '<br>';
-                echo 'Category: ' . htmlspecialchars($category[$watch['category']]) . '<br>';
-                echo 'Gender: ' . htmlspecialchars($gender[$watch['gender']]) . '<br>';
-                echo 'Details: ' . htmlspecialchars($watch['details']) . '<br>';
-                echo 'Price: ' . htmlspecialchars($watch['price']) . '<br>';
-                echo '<img src="' . htmlspecialchars($watch['image']) . '">';
-                echo '<a class="image-fluid" href="edit.php?id=' . htmlspecialchars($watch['id']) . '&status=edit">edit</a>';
-                echo '<hr>';
-            }
-        ?>
+    <div class="container">
+        <div class="row">
+            <?php foreach ($watches as $watch) : ?>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card bg-dark text-light">
+                    <img class="card-img-top" src="<?= htmlspecialchars($watch['image'])?>" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title"><?= htmlspecialchars($watch['name'])?></h4>
+                        <p class="card-text"><small><?= htmlspecialchars($watch['details'])?></small></p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item bg-dark text-light"><strong>Brand:</strong> <small><?= htmlspecialchars($brand[$watch['brand']])?></small></li>
+                        <li class="list-group-item bg-dark text-light"><strong>Category:</strong> <small><?= htmlspecialchars($category[$watch['category']])?></small></li>
+                        <li class="list-group-item bg-dark text-light"><strong>Gender:</strong> <small><?= htmlspecialchars($gender[$watch['gender']])?></small></li>
+                        <li class="list-group-item bg-dark text-light"><strong>Price:</strong> <small><?= htmlspecialchars($watch['price'])?></small> ,- CZK</li>
+                    </ul>
+                    <div class="card-body">
+                        <a class="btn btn-primary btn-block" href="<?= 'edit.php?id=' . htmlspecialchars($watch['id']) . '&status=edit'; ?>" class="card-link">Edit</a>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
