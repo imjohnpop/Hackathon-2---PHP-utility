@@ -30,7 +30,7 @@ function required() {
 }
 
     
-function build_form($name, $idb, $idc, $idg, $details, $price, $image = "img/default-1.jpg"){
+function build_form($name, $idb, $idc, $idg, $details, $price , $image = "img/default-1.jpg"){
     $form = '<form class="col-12" action="" method="post">
         <div class="form-group"><label for="name">Watch:</label><input class="form-control" type="text" name="name" placeholder="Name of the watch" value="' . htmlspecialchars(stripslashes($name)) . '"></div>
         <div class="d-flex">
@@ -72,7 +72,7 @@ function build_form($name, $idb, $idc, $idg, $details, $price, $image = "img/def
             $form .=  '</select></div>
         </div>
         <div class="form-group"><label for="details">Details:</label><textarea class="form-control" name="details" id="details" row="3" placeholder="Write there sume more details about watches">'. htmlspecialchars(stripslashes($details)) .'</textarea></div>
-        <div class="form-group"><label for="price">Price:</label><input class="form-control" type="number" name="price" placeholder="Price in CZK" value="' . $price . '"></div>
+        <div class="form-group"><label for="price">Price:</label><input class="form-control" type="text" patter="[0-9]" name="price" placeholder="Price in CZK" value="' . $price . '"></div>
         <div class="form-group"><label for="image">Image:</label><input class="form-control" type="text" name="image" placeholder="Enter path to img: /img/nameofimage.typeofimage" value="' . htmlspecialchars(stripslashes($image)) . '"></div>
         <div class=" d-flex justify-content-end">
             <input class="form-control btn btn-primary w-25" type="submit" value="Submit">
