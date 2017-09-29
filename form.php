@@ -2,7 +2,18 @@
 function build_form($id, $name, $brand, $category, $gender, $details, $price){
     $form = '<form class="col-6" action="" method="post">
         <div class="form-group"><label for="name">Watch:</label><input class="form-control" type="text" name="name" placeholder="Name of the watch" value="' . htmlspecialchars($name) . '"></div>
-        <div class="form-group"><label for="brand">Brand:</label><input class="form-control" type="text" name="brand" placeholder="Brand of the watch" value="' . htmlspecialchars($brand) . '"></div>
+        <div class="form-group"><label class="mr-1" for="brand">Brand:</label>
+        <select name="brand">';
+        require 'brand.php';
+        foreach ($brand as $key => $valuebrand) {
+                $select = '';
+                if ($id==$key)
+                {
+                    $select='selected';
+                }
+                $form .= "<option value=$key " . $select . ">$valuebrand</option>";
+            }
+        $form .=  '</select></div>
         <div class="form-group"><label class="mr-1" for="category">Category:</label>
         <select name="category">';
         require 'category.php';
