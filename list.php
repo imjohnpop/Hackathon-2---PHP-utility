@@ -19,10 +19,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>U2-Ecommerce | List</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,400,700" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+        }
+    </style>
 </head>
 <body class="bg-dark">
+
+    <div class="py-3 container">
         <a class="btn btn-primary" href="index.php">Go to the form</a>
-        <hr>
+    </div>
+
     <div class="container">
         <div class="row">
             <?php foreach ($watches as $watch) : ?>

@@ -22,21 +22,30 @@ if ($_POST) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>U2-Ecommerce | Form</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-</head>
-<body class="d-flex flex-column justify-content-around">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,400,700" rel="stylesheet">
 
-    <section class="container my-5 py-2 border border-dark">
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-dark">
+
+    <section class="container my-5 py-2 border border-dark bg-light">
         <?php if (isset($_GET['status']) && $_GET['status'] == 'ok')
         {echo '<h1 class="text-uppercase text-center">You have added a watch!</h1>';}
-        else { echo '<h1 class="text-uppercase text-center">Add a watch</h1>';}?>
+        else { echo '<h1 class="text-uppercase text-center">Add watch</h1>';}?>
         <a class="btn btn-primary" href="list.php">Go to the list of products</a>
     </section>
     
-    <div class="container">
-        <section id="form" class="row pb-4 pt-5 border border-dark">
-            <?php 
-                echo build_form('','','','','','','', '');
-            ?>
+    <div class="container bg-light">
+        <section class="d-flex flex-row justify-content-center row pb-4 pt-5 border border-dark">
+            <div class="col-6">
+                <?php 
+                    echo build_form('','','','','','','', '');
+                ?>
+            </div>
         </section>
     </div>
 

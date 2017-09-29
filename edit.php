@@ -37,26 +37,33 @@ if($_POST) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>U2-Ecommerce | Form</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-</head>
-<body class="d-flex flex-column justify-content-around">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,400,700" rel="stylesheet">
 
-    <section class="container my-5 py-2 border border-dark">
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-dark">
+
+    <section class="container my-5 py-2 border border-dark bg-white">
         <?php if (isset($_GET['status']) && $_GET['status'] == 'ok')
         {echo '<h1 class="text-uppercase text-center">You have added a watch!</h1>';}
         elseif (isset($_GET['status']) && $_GET['status'] == 'edit') { echo '<h1 class="text-uppercase text-left">Edit your product</h1>'; }
-        else { echo '<h1 class="text-uppercase text-center">Add a watch</h1>';}?>
+        else { echo '<h1 class="text-uppercase text-center">Add watch</h1>';}?>
         <a class="btn btn-primary" href="list.php">Go to the list of products</a>
     </section>
     
     <div class="container">
-        <section id="form" class="row pb-4 pt-5 border border-dark">
-            <?php 
-                echo build_form($watches['name'], $watches['brand'], $watches['category'], $watches['gender'], $watches['details'], $watches['price'], $watches['image']);
-            ?>
-            <div class="container p-2 d-flex flex-row justify-content-center">
-                <div class="row">
-                    <?= "<img class=\"img-fluid h-100\" src=\"" . $watches['image'] . "\" alt=\"product image\">" ?>
-                </div>
+        <section class="row pb-4 pt-5 border border-dark bg-white">
+            <div class="col-lg-6 col-12">
+                <?php 
+                    echo build_form($watches['name'], $watches['brand'], $watches['category'], $watches['gender'], $watches['details'], $watches['price'], $watches['image']);
+                ?>
+            </div>
+            <div class="col-lg-6 col-12 mt-3 d-flex flex-row justify-content-center">
+                <img class="img-fluid w-100 h-100" src="<?= $watches['image']; ?>" alt="product image">
             </div>
         </section>
     </div>
