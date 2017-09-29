@@ -18,25 +18,25 @@ function build_form($id, $name, $brand, $category, $gender, $details, $price){
             <div class="mr-3 form-group"><label class="mr-1" for="category">Category:</label>
             <select name="category">';
             require 'category.php';
-            foreach ($category as $key => $valuecat) {
+            foreach ($category as $keycat => $valuecat) {
                     $select = '';
-                    if ($id==$key)
+                    if ($id==$keycat)
                     {
                         $select='selected';
                     }
-                    $form .= "<option value=$key " . $select . ">$valuecat</option>";
+                    $form .= "<option value=$keycat " . $select . ">$valuecat</option>";
                 }
             $form .=  '</select></div>
             <div class="form-group"><label class="mr-1" for="gender">Gender:</label>
             <select name="gender">';
             require 'gender.php';
-            foreach ($gender as $key => $valuegen) {
+            foreach ($gender as $keygen => $valuegen) {
                     $select = '';
-                    if ($id==$key)
+                    if ($id==$keygen)
                     {
                         $select='selected';
                     }
-                    $form .= "<option value=$key " . $select . ">$valuegen</option>";
+                    $form .= "<option value=$keygen " . $select . ">$valuegen</option>";
                 }
             $form .=  '</select></div>
         </div>

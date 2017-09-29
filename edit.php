@@ -1,6 +1,7 @@
 <?php
 require_once 'db.php';
-require 'genre.php';
+require_once 'form.php';
+require 'gender.php';
 require 'category.php';
 require 'brand.php';
 $db = db_connect();
@@ -32,7 +33,7 @@ $watches = $stmt->fetch();
     <div class="container">
         <section id="form" class="row pb-4 pt-5 border border-dark">
             <?php 
-                echo build_form($watches['id'], $watches['name'], $watches['category'], $watches['gender'], $watches['details'], $watches['price']);
+                echo build_form($watches['id'], $watches['name'], $watches['brand'], $watches['category'], $watches['gender'], $watches['details'], $watches['price']);
             ?>
         </section>
     </div>

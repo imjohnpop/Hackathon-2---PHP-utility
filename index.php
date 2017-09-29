@@ -7,7 +7,7 @@ require 'brand.php';
 $db = db_connect();
 
 if ($_POST) {
-    $stmt = $db->prepare('INSERT INTO products (name, brand, category, gender, details, price) VALUES (?, ?, ?, ?, ?, ?)');
+    $stmt = $db->prepare('INSERT INTO watches (name, brand, category, gender, details, price) VALUES (?, ?, ?, ?, ?, ?)');
     $stmt->execute([$_POST['name'], $_POST['brand'], $_POST['category'], $_POST['gender'], $_POST['details'], $_POST['price']]);
 
     header ("Location: index.php?status=ok");// changes the method from post to get
