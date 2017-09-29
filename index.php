@@ -1,9 +1,17 @@
 <?php
-require 'form.php';
-require 'db.php';
+require_once 'form.php';
+require_once 'db.php';
 require 'category.php';
 require 'gender.php';
 $db = db_connect();
+
+if ($_POST) {
+    $stmt = $db->prepare('INSERT INTO products (name, brand, category, gender, details, price) VALUES (?, ?, ?, ?, ?, ?)');
+    $stmt->execute([$_POST['name'], $_POST['brand'], $_POST['category'], $_POST['gender'], $_POST['details'], $_POST['price']]);
+
+    header ("Location: index.php?status=ok");// changes the method from post to get
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +24,8 @@ $db = db_connect();
 </head>
 <body>
     
-    <?php build_form('','','','','','');
+    <?php 
+        echo build_form('','','','','','','');
     ?>
 
 
