@@ -47,7 +47,7 @@ if($_POST) {
 </head>
 <body class="bg-dark">
 
-    <section class="container my-5 py-2 border border-dark bg-white">
+    <section class="container my-5 py-2 border border-dark bg-white rounded">
         <?php if (isset($_GET['status']) && $_GET['status'] == 'ok')
         {echo '<h1 class="text-uppercase text-center">You have added a watch!</h1>';}
         elseif (isset($_GET['status']) && $_GET['status'] == 'edit') { echo '<h1 class="text-uppercase text-left">Edit your product</h1>'; }
@@ -56,7 +56,7 @@ if($_POST) {
     </section>
     
     <div class="container">
-        <section class="row pb-4 pt-5 border border-dark bg-white">
+        <section class="row pb-4 pt-5 border border-dark bg-white rounded">
             <div class="col-lg-6 col-12">
                 <?php 
                     echo build_form($watches['name'], $watches['brand'], $watches['category'], $watches['gender'], $watches['details'], $watches['price'], $watches['image']);

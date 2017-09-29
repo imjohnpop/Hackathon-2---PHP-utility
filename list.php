@@ -50,7 +50,7 @@
                         <li class="list-group-item bg-light text-dark"><strong>Brand:</strong> <small><?= htmlspecialchars(stripslashes($brand[$watch['brand']]))?></small></li>
                         <li class="list-group-item bg-light text-dark"><strong>Category:</strong> <small><?= htmlspecialchars(stripslashes($category[$watch['category']]))?></small></li>
                         <li class="list-group-item bg-light text-dark"><strong>Gender:</strong> <small><?= htmlspecialchars(stripslashes($gender[$watch['gender']]))?></small></li>
-                        <li class="list-group-item bg-light text-dark"><strong>Price:</strong> <small><?= htmlspecialchars(stripslashes($watch['price']))?></small> ,- CZK</li>
+                        <li class="list-group-item bg-light text-dark"><strong>Price:</strong> <small><?= htmlspecialchars($watch['price'])?></small> ,- CZK</li>
                     </ul>
                     <div class="card-body">
                         <a class="btn btn-primary btn-block" href="<?= 'edit.php?id=' . htmlspecialchars(stripslashes($watch['id'])) . '&status=edit'; ?>" class="card-link">Edit</a>

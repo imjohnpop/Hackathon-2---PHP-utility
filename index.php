@@ -30,15 +30,15 @@ required();
 </head>
 <body class="bg-dark">
 
-    <section class="container my-5 py-2 border border-dark bg-light">
+    <section class="container my-5 py-2 border border-dark bg-white rounded">
         <?php if (isset($_GET['status']) && $_GET['status'] == 'ok')
         {echo '<h1 class="text-uppercase text-center">You have added a watch!</h1>';}
         else { echo '<h1 class="text-uppercase text-center">Add watch</h1>';}?>
         <a class="btn btn-primary" href="list.php">Go to the list of products</a>
     </section>
     
-    <div class="container bg-light">
-        <section class="d-flex flex-row justify-content-center row pb-4 pt-5 border border-dark">
+    <div class="container bg-white rounded">
+        <section class="d-flex flex-row justify-content-center row pb-4 pt-5 border border-dark rounded">
             <div class="col-6">
                 <?php 
                     echo build_form('','','','','','','', '');
