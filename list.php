@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 </head>
 <body>
+        <a href="/hackathon%232/Hackathon-2---PHP-utility/index.php">Go to the form</a>
+        <hr>
         <?php
             foreach ($watches as $watch) {
                 echo 'Name: ' . htmlspecialchars($watch['name']) . '<br>';
