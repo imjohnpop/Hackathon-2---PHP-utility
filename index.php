@@ -1,17 +1,16 @@
 <?php
-require_once 'form.php';
+require 'form.php';
 require_once 'db.php';
 require 'category.php';
 require 'gender.php';
 require 'brand.php';
 $db = db_connect();
 
-if ($_POST) {
-    $stmt = $db->prepare('INSERT INTO watches (name, brand, category, gender, details, price, image) VALUES (?, ?, ?, ?, ?, ?, ?)');
-    $stmt->execute([$_POST['name'], $_POST['brand'], $_POST['category'], $_POST['gender'], $_POST['details'], $_POST['price'], $_POST['image']]);
+if($_POST) {
+$stmt = $db->prepare('INSERT INTO watches (name, brand, category, gender, details, price, image) VALUES (?, ?, ?, ?, ?, ?, ?)');
+$stmt->execute([$_POST['name'], $_POST['brand'], $_POST['category'], $_POST['gender'], $_POST['details'], $_POST['price'], $_POST['image']]);
 }
 required();
-var_dump($brand);
 ?>
 <!DOCTYPE html>
 <html lang="en">
