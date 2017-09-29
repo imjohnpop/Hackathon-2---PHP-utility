@@ -1,5 +1,5 @@
 <?php 
-function build_form($id, $name, $brand, $category, $gender, $details, $price){
+function build_form($name, $idb, $idc, $idg, $details, $price){
     $form = '<form class="col-12" action="" method="post">
         <div class="form-group"><label for="name">Watch:</label><input class="form-control" type="text" name="name" placeholder="Name of the watch" value="' . htmlspecialchars($name) . '"></div>
         <div class="d-flex">
@@ -8,7 +8,7 @@ function build_form($id, $name, $brand, $category, $gender, $details, $price){
             require 'brand.php';
             foreach ($brand as $key => $valuebrand) {
                     $select = '';
-                    if ($id==$key)
+                    if ($idb==$key)
                     {
                         $select='selected';
                     }
@@ -20,7 +20,7 @@ function build_form($id, $name, $brand, $category, $gender, $details, $price){
             require 'category.php';
             foreach ($category as $keycat => $valuecat) {
                     $select = '';
-                    if ($id==$keycat)
+                    if ($idc==$keycat)
                     {
                         $select='selected';
                     }
@@ -32,7 +32,7 @@ function build_form($id, $name, $brand, $category, $gender, $details, $price){
             require 'gender.php';
             foreach ($gender as $keygen => $valuegen) {
                     $select = '';
-                    if ($id==$keygen)
+                    if ($idg==$keygen)
                     {
                         $select='selected';
                     }
