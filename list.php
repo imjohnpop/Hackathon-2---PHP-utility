@@ -26,12 +26,15 @@
     <div class="container">
         <div class="row">
             <?php foreach ($watches as $watch) : ?>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-2">
                 <div class="card bg-dark text-light">
                     <img class="card-img-top" src="<?= htmlspecialchars(stripslashes($watch['image']))?>" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="card-title"><?= htmlspecialchars(stripslashes($watch['name']))?></h4>
-                        <p class="card-text"><small><?= htmlspecialchars(stripslashes($watch['details']))?></small></p>
+                        <a class="btn btn-primary btn-block btn-sm" data-toggle="collapse" href="#collapse<?= $watch['id']; ?>" aria-expanded="false" aria-controls="collapse<?= $watch['id']; ?>">See details</a>
+                        <div class="collapse" id="collapse<?= $watch['id']; ?>">
+                            <p class="card-text"><small><?= htmlspecialchars(stripslashes($watch['details']))?></small></p>
+                        </div>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item bg-dark text-light"><strong>Brand:</strong> <small><?= htmlspecialchars(stripslashes($brand[$watch['brand']]))?></small></li>
