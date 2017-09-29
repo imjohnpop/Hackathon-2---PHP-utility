@@ -3,6 +3,7 @@ require_once 'form.php';
 require_once 'db.php';
 require 'category.php';
 require 'gender.php';
+require 'brand.php';
 $db = db_connect();
 
 if ($_POST) {
