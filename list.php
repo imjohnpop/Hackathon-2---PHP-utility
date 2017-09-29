@@ -28,19 +28,19 @@
             <?php foreach ($watches as $watch) : ?>
             <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="card bg-dark text-light">
-                    <img class="card-img-top" src="<?= htmlspecialchars($watch['image'])?>" alt="Card image cap">
+                    <img class="card-img-top" src="<?= htmlspecialchars(stripslashes($watch['image']))?>" alt="Card image cap">
                     <div class="card-body">
-                        <h4 class="card-title"><?= htmlspecialchars($watch['name'])?></h4>
-                        <p class="card-text"><small><?= htmlspecialchars($watch['details'])?></small></p>
+                        <h4 class="card-title"><?= htmlspecialchars(stripslashes($watch['name']))?></h4>
+                        <p class="card-text"><small><?= htmlspecialchars(stripslashes($watch['details']))?></small></p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item bg-dark text-light"><strong>Brand:</strong> <small><?= htmlspecialchars($brand[$watch['brand']])?></small></li>
-                        <li class="list-group-item bg-dark text-light"><strong>Category:</strong> <small><?= htmlspecialchars($category[$watch['category']])?></small></li>
-                        <li class="list-group-item bg-dark text-light"><strong>Gender:</strong> <small><?= htmlspecialchars($gender[$watch['gender']])?></small></li>
-                        <li class="list-group-item bg-dark text-light"><strong>Price:</strong> <small><?= htmlspecialchars($watch['price'])?></small> ,- CZK</li>
+                        <li class="list-group-item bg-dark text-light"><strong>Brand:</strong> <small><?= htmlspecialchars(stripslashes($brand[$watch['brand']]))?></small></li>
+                        <li class="list-group-item bg-dark text-light"><strong>Category:</strong> <small><?= htmlspecialchars(stripslashes($category[$watch['category']]))?></small></li>
+                        <li class="list-group-item bg-dark text-light"><strong>Gender:</strong> <small><?= htmlspecialchars(stripslashes($gender[$watch['gender']]))?></small></li>
+                        <li class="list-group-item bg-dark text-light"><strong>Price:</strong> <small><?= htmlspecialchars(stripslashes($watch['price']))?></small> ,- CZK</li>
                     </ul>
                     <div class="card-body">
-                        <a class="btn btn-primary btn-block" href="<?= 'edit.php?id=' . htmlspecialchars($watch['id']) . '&status=edit'; ?>" class="card-link">Edit</a>
+                        <a class="btn btn-primary btn-block" href="<?= 'edit.php?id=' . htmlspecialchars(stripslashes($watch['id'])) . '&status=edit'; ?>" class="card-link">Edit</a>
                     </div>
                 </div>
             </div>
