@@ -1,7 +1,6 @@
 <?php   
     require_once 'form.php';
     require_once 'db.php';
-    require 'delete.php';
     require 'category.php';
     require 'gender.php';
     require 'brand.php';
@@ -12,8 +11,9 @@
     $watches = $stmt->fetchAll();  
 
     if ($_POST) {
-        $stmt = $db->prepare('DELETE FROM watches WHERE $id=');
+        $stmt = $db->prepare("DELETE FROM watches WHERE id='$watch[id]'");
         $stmt->execute();
+        $watches = $stmt->fetchAll();
         header('Location: list.php');
     }
 ?>
