@@ -42,14 +42,14 @@ if($_POST) {
     </section>
     
     <div class="container bg-white rounded mb-2">
-        <section class="d-flex flex-row justify-content-center row pt-5 border border-dark rounded">
+        <section class="d-flex flex-row justify-content-center row pb-3 pt-4 border border-dark rounded">
             <div class="col-6">
                 <?php 
                     echo build_form('','','','','','','', '');
                 ?>
             </div>
             <div class="col-12">
-                <div class="w-25 mx-auto pt-2">
+                <div class="w-25 mx-auto pt-4">
                     <?php required(); ?>
                 </div>
             </div>
