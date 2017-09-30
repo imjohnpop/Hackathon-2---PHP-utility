@@ -1,6 +1,7 @@
 <?php   
     require_once 'form.php';
     require_once 'db.php';
+    require 'delete.php';
     require 'category.php';
     require 'gender.php';
     require 'brand.php';
@@ -9,6 +10,12 @@
     $stmt = $db->prepare('SELECT * FROM watches');
     $stmt->execute();
     $watches = $stmt->fetchAll();  
+
+    if ($_POST) {
+        $stmt = $db->prepare('DELETE FROM watches WHERE $id=');
+        $stmt->execute();
+        header('Location: list.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -54,6 +61,10 @@
                     </ul>
                     <div class="card-body">
                         <a class="btn btn-primary btn-block" href="<?= 'edit.php?id=' . htmlspecialchars(stripslashes($watch['id'])) . '&status=edit'; ?>" class="card-link">Edit</a>
+                        <form class="mt-1" action="list.php" method="post">
+
+                            <input class="btn btn-primary btn-block" type="submit" value="Delete">
+                        </form>
                     </div>
                 </div>
             </div>
