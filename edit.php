@@ -22,6 +22,9 @@ if($watches == false) {
 }
 if($_POST) {
     $stmt = $db->prepare('UPDATE watches SET name=?, brand=?, category=?, gender=?,details=?, price=?, image=? WHERE id = ?');
+    if (empty($_POST['price'])) {
+        $_POST['price'] = 0;
+    }
     $stmt->execute([$_POST['name'], $_POST['brand'], $_POST['category'], $_POST['gender'], $_POST['details'], $_POST['price'], $_POST['image'], $_GET['id']]);
     header ("Location: list.php?status=ok");// changes the method from post to get
     exit();

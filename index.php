@@ -1,5 +1,5 @@
 <?php
-require 'form.php';
+require_once 'form.php';
 require_once 'db.php';
 require 'category.php';
 require 'gender.php';
@@ -7,10 +7,14 @@ require 'brand.php';
 $db = db_connect();
 
 if($_POST) {
-$stmt = $db->prepare('INSERT INTO watches (name, brand, category, gender, details, price, image) VALUES (?, ?, ?, ?, ?, ?, ?)');
-$stmt->execute([$_POST['name'], $_POST['brand'], $_POST['category'], $_POST['gender'], $_POST['details'], $_POST['price'], $_POST['image']]);
+    $stmt = $db->prepare('INSERT INTO watches (name, brand, category, gender, details, price, image) VALUES (?, ?, ?, ?, ?, ?, ?)');
+    if (empty($_POST['price'])) {
+        $_POST['price'] = 0;
+    } else {
+        $stmt->execute([$_POST['name'], $_POST['brand'], $_POST['category'], $_POST['gender'], $_POST['details'], $_POST['price'], $_POST['image']]);
+    }
 }
-required();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,6 +43,9 @@ required();
     
     <div class="container bg-white rounded">
         <section class="d-flex flex-row justify-content-center row pb-4 pt-5 border border-dark rounded">
+            <div>
+                <?php required(); ?>
+            </div>
             <div class="col-6">
                 <?php 
                     echo build_form('','','','','','','', '');
